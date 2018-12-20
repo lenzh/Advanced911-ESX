@@ -50,13 +50,13 @@ AddEventHandler("Fax:SendCallToTeam", function(service, desc, callid, streetName
 
 			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" .. streetName .. "] ^4" .. desc)
 
-		    elseif service == "ems" then
+		elseif service == "ems" then
 
 			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" .. streetName .. "] ^4 " .. desc)
 
         elseif service == "all" then
 
-			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" .. streetName   t.. "] ^4" .. desc)
+			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" .. streetName .. "] ^4" .. desc)
 
 	end
 
