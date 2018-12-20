@@ -44,7 +44,7 @@ RegisterServerEvent("Fax:SendCallToTeam")
 AddEventHandler("Fax:SendCallToTeam", function(service, desc, callid)
 
     local s = source
-local coords = GetEntityCoords(GetPlayerPed(GetPlayerFromServerId(s)))
+local coords = GetEntityCoords(Playerid(GetPlayerFromServerId(s)))
 
     local street1 = GetStreetNameAtCoord(coords.x, coords.y, coords.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger())
 
