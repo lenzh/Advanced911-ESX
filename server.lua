@@ -38,15 +38,32 @@ RegisterCommand("911", function(source, args, rawCommand)
     end
 end)
 
-RegisterServerEvent("Fax:SendCallToTeam")
-AddEventHandler("Fax:SendCallToTeam", function(service, desc, callid)
-    local s = source
 
-    if service == "pd" then
-			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "] " .. desc)
-		    elseif service == "ems" then
-			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "] " .. desc)
-        elseif service == "all" then
-			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "] " .. desc)
+RegisterServerEvent("Fax:SendCallToTeam")
+
+AddEventHandler("Fax:SendCallToTeam", function(service, desc, callid)
+
+    local s = source
+local coords = GetEntityCoords(GetPlayerPed(GetPlayerFromServerId(s)))
+
+    local street1 = GetStreetNameAtCoord(coords.x, coords.y, coords.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger())
+
+    local streetName = (GetStreetNameFromHashKey(street1))
+
+
+
+    if service == "pd" then
+
+			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" ..streetName.. " ^4" .. desc)
+
+		 elseif service == "ems" then
+
+			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" ..streetName.. " ^4 " .. desc)
+
+        elseif service == "all" then
+
+			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" ..streetName.. " ^4" .. desc)
+
 	end
+
 end)
