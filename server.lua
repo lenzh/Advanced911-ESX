@@ -41,22 +41,22 @@ end)
 
 RegisterServerEvent("Fax:SendCallToTeam")
 
-AddEventHandler("Fax:SendCallToTeam", function(service, desc, callid, streetName)
+AddEventHandler("Fax:SendCallToTeam", function(service, desc, callid, streetName, crossing)
 
 	local s = source
 
 
 	if service == "pd" then
 
-			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" .. streetName .. "] ^4" .. desc)
+			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION: " .. streetName .. " ^1and ^3" .. crossing .. "] ^4 Message:^5"  .. desc)
 
 		elseif service == "ems" then
 
-			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" .. streetName .. "] ^4 " .. desc)
+			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION: " .. streetName .. " ^1and ^3" .. crossing .. "] ^4 Message:^5"  .. desc)
 
         elseif service == "all" then
 
-			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION:" .. streetName .. "] ^4" .. desc)
+			TriggerClientEvent("chatMessage", s, "^1911 Call [ID:" .. callid .. "]^3 [LOCATION: " .. streetName .. " ^1and ^3" .. crossing .. "] ^4 Message:^5"  .. desc)
 
 	end
 
