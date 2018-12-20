@@ -44,14 +44,14 @@ AddEventHandler('Fax:SendCall', function(service, desc, callid)
       TriggerServerEvent("Fax:SendCallToTeam", service, desc, callid, streetName)
         end
 
-        elseif service == "all" then
-      		if PlayerData.job ~= nil and PlayerData.job.name == 'police' or PlayerData.job ~= nil and PlayerData.job.name == 'ambulance' then
-            if crossing ~= nil then
-              crossing = GetStreetNameFromHashKey(crossing)
-      			TriggerServerEvent("Fax:SendCallToTeam", service, desc, callid, streetName, crossing)
-          else
-            TriggerServerEvent("Fax:SendCallToTeam", service, desc, callid, streetName)
-      		end
+      elseif service == "ems" then
+   		if PlayerData.job ~= nil and PlayerData.job.name == 'ambulance' or PlayerData.job ~= nil and PlayerData.job.name == 'police' then
+         if crossing ~= nil then
+           crossing = GetStreetNameFromHashKey(crossing)
+   			TriggerServerEvent("Fax:SendCallToTeam", service, desc, callid, streetName, crossing)
+       else
+         TriggerServerEvent("Fax:SendCallToTeam", service, desc, callid, streetName)
+           end
     end
    end
   end
