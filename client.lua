@@ -44,7 +44,7 @@ AddEventHandler('Fax:SendCall', function(service, desc, callid)
       TriggerServerEvent("Fax:SendCallToTeam", service, desc, callid, streetName)
         end
 
-      elseif service == "ems" then
+      elseif service == "all" then
    		if PlayerData.job ~= nil and PlayerData.job.name == 'ambulance' or PlayerData.job ~= nil and PlayerData.job.name == 'police' then
          if crossing ~= nil then
            crossing = GetStreetNameFromHashKey(crossing)
